@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function thread()
+    {
+        return $this->belongsTo('App\Thread');
+    }
+
+    public function profilUser()
+    {
+        return $this->belongsTo('App\ProfilUser');
+    }
 }
