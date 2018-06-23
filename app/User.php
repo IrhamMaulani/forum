@@ -29,11 +29,16 @@ class User extends Authenticatable
 
     public function thread()
     {
-        return $this->belongsTo('App\Thread');
+        return $this->hasMany('\App\Thread');
     }
 
     public function profilUser()
     {
-        return $this->belongsTo('App\ProfilUser');
+        return $this->hasMany('\App\ProfilUser');
+    }
+
+    public function User()
+    {
+        return $this->hasMany('\App\User');
     }
 }

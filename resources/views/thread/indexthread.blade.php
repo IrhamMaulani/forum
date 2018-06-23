@@ -4,7 +4,15 @@
 
 @section('content')
 
+@if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
+
 <h1>ISI THREAD</h1>
+
+<a  class="btn btn-info" href="/thread/create" role="button">Add</a>
 
 <div class="container">
     
@@ -20,9 +28,9 @@
 
             @foreach ($threads as $thread )
         <tr>
-          <td>{{$thread -> thread -> judul_thread}}</td>
-          <td>{{$thread -> user_id }}</td>
-          <td>{{$thread -> isi_thread}}</td>
+        <td><a href="/thread/{{$thread ->id}}"> {{$thread ->judul_thread}} </a></td>
+          <td>{{$thread ->user->name }}</td>
+          <td>{{$thread ->isi_thread}}</td>
         </tr>
         @endforeach
       </tbody>
